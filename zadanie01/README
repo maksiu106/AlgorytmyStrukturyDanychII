@@ -1,0 +1,16 @@
+Krzysztof Czarnowus, 13.03.2024 r.
+
+Katalog zawiera kod źródłowy implementacji zbioru oraz plik Makefile służący kompilacji oraz czyszczeniu katalogu.
+- komenda "make all" kompiluje kod do pliku wykonywalnego "set"
+- komenda "make clean" usuwa niepotrzebne pliki, w tym wykonywalny plik "set"
+
+Uruchamianie programu
+Aby uruchomić skompilowany program, należy wywołać go z trzema argumentami w postaci:
+
+./set [KOMENDA] [PLIK1] [PLIK2]
+
+gdzie [PLIK1] oraz [PLIK2] są ścieżkami do plików tekstowych, z których chce się zbudować porównywanie zbiory, natomiast w miejscu argumentu [KOMENDA] można skorzystać z następujących możliwości:
+
+- common_words - liczy przecięcie zbiorów oraz zwraca listę słów powtarzających się w obu plikach
+- unique_words - liczy różnicę zbiorów; zwraca listę tych słów z pierwszego pliku, ktorych nie ma w drugim, a także tych słów z drugiego pliku, których nie ma w pierwszym
+- all_words - liczy sumę obu zbiorów i zwraca listę wszystkich słów występujących w dowolnym z obu plików

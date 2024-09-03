@@ -1,0 +1,17 @@
+Krzysztof Czarnowus, 13.03.2024 r.
+
+Katalog zawiera kod źródłowy implementacji zbioru oraz plik Makefile służący kompilacji oraz czyszczeniu katalogu.
+- komenda "make all" kompiluje kod do pliku wykonywalnego "heap"
+- komenda "make clean" usuwa niepotrzebne pliki, w tym wykonywalny plik "heap"
+- komenda "make run" uruchamia program
+
+Uruchamianie programu
+Aby uruchomić skompilowany program, należy wywołać go w postaci:
+
+./heap
+
+Program przyjmuje następujące komendy:
+
+ADD [słowo] [priorytet] - dodaje słowo do kolejki z zadanym priorytetem
+REMOVE - usuwa z kolejki słowo z największym priorytetem i wypisuje je na ekran
+PEEK - wypisuje na ekran słowo z największym priorytetem bez usuwania go z kolejki

@@ -1,0 +1,18 @@
+Krzysztof Czarnowus, 14.04.2024 r.
+
+Katalog zawiera kod źródłowy implementacji grafu oraz plik Makefile służący kompilacji oraz czyszczeniu katalogu.
+- komenda "make all" kompiluje kod do pliku wykonywalnego "heap"
+- komenda "make clean" usuwa niepotrzebne pliki, w tym wykonywalny plik "heap"
+- komenda "make run" uruchamia program
+
+Uruchamianie programu
+Aby uruchomić skompilowany program, należy wywołać go w postaci:
+
+./graph
+
+Format wejścia programu:
+- W pierwszym wierszu liczba przystanków n​.
+- W kolejnych n wierszach nazwy przystanków (bez spacji).
+- W kolejnym wierszu liczba linii m.
+- W każdym z kolejnych m wierszy nazwa linii (np. A100​), po której następuje ciąg nazw przystanków obsługiwanych przez tę linię, rozdzielonych spacjami (zakładamy, że linia obsługuje przystanki w obie strony).
+- W kolejnym wierszu nazwy przystanku początkowego i końcowego, rozdzielone spacją.

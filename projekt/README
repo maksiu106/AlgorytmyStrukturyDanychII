@@ -1,0 +1,59 @@
+10.06.2024, Krzysztof Czarnowus
+Projekt zaliczeniowy na zajęcia z Algorytmów i Struktur Danych
+
+1. TREŚĆ ZADANIA
+
+"Przemytnicy"
+
+Bajtocja słynie z bogatych złóż złota, dlatego przez długie lata kwitła sprzedaż tego kruszcu do sąsiedniego królestwa, Bitlandii. Niestety powiększająca się ostatnio dziura budżetowa zmusiła króla Bitlandii do wprowadzenia zaporowych ceł na metale i minerały. Handlarze przekraczający granicę muszą zapłacić 50% wartości przewożonego ładunku. Bajtockim kupcom grozi bankructwo. Na szczęście bajtoccy alchemicy opracowali sposoby pozwalające zamieniać pewne metale w inne. Pomysł kupców polega na tym, aby z pomocą alchemików zamieniać złoto w pewien tani metal, a następnie, po przewiezieniu go przez granicę i zapłaceniu niewielkiego cła, znowu otrzymywać z niego złoto. Niestety alchemicy nie znaleźli sposobu na zamianę dowolnego metalu w dowolny inny. Może się więc zdarzyć, że proces otrzymania danego metalu ze złota musi przebiegać wielostopniowo i że na każdym etapie uzyskiwany będzie inny metal. Alchemicy każą sobie słono płacić za swoje usługi i dla każdego znanego sobie procesu zamiany metalu A w metal B wyznaczyli cenę za przemianę 1 kg surowca. Handlarze zastanawiają się, w jakiej postaci należy przewozić złoto przez granicę, oraz jaki ciąg procesów alchemicznych należy zastosować, aby zyski były możliwie największe.
+
+Pomóż uzdrowić bajtocką gospodarkę! Napisz program, który:
+    Wczyta tabelę cen wszystkich metali, a także ceny przemian oferowanych przez alchemików.
+    Wyznaczy taki ciąg metali m0, m1, ..., mk, że:
+        m0 = mk to złoto,
+        dla każdego i=1, 2, ..., k alchemicy potrafią otrzymać metal mi z metalu mi-1 oraz
+        koszt wykonania całego ciągu procesów alchemicznych dla 1 kg złota, powiększony o płacone na granicy cło (50% ceny 1 kg najtańszego z metali mi, dla i = 0, 1, ..., k) jest najmniejszy z możliwych.
+    Zakładamy, że podczas procesów alchemicznych waga metali nie zmienia się.
+    Wypisze koszt wykonania wyznaczonego ciągu procesów alchemicznych powiększony o płacone na granicy cło.
+
+2. ROZWIĄZANIE
+
+Możliwy ciąg przemian między metalami przedstawiono za pomocą grafu, w którym każdy wierzchołek jest reprezentowany przez metal, a każda krawędź przez przemianę o wadze równej jej kosztowi. Program wczytuje dane wejściowe i konstruuje obiekt klasy Smuggler, która liczy dla każdego metalu trzy wartości: najmniejszy koszt przemiany złota w ten metal, koszt cła na granicy oraz koszt ponownej przemiany danego metalu w złoto. Pierwsza oraz trzecia z nich realizowana jest za pomocą uruchomienia algorytmu Dijkstry - jednokrotnie dla złota jako wierzchołka startowego oraz n-krotnie dla n metali - przy czym wówczas algorytm przerywany jest za każdym razem po znalezieniu najkrótszej ścieżki do złota. Na końcu sumuje się te trzy otrzymane wartości i znajdując minimum otrzymuje najmniejszy koszt przewiezienia złota przez granicę przy zastosowaniu przemian alchemicznych.
+
+3. DANE WEJŚCIOWE
+
+W pierwszej linii należy podać na standardowe wejście ilość metali w świecie (a więc wierzchołków w grafie)
+W drugiej cenę złota
+W następnych n liniach cenę każdego z n metali innych niż złoto
+W następnej linii ilość przemian alchemicznych (a więc krawędzi w grafie)
+W następnych k liniach wprowadza się krawędzie w formacie:
+	[NUMER WIERZCHOŁKA STARTOWEGO] [NUMER WIERZCHOŁKA KOŃCOWEGO] [KOSZT PRZEMIANY]
+gdzie złoto jest reprezentowane przez numer 1.
+
+W wyniku powinno otrzymać się na standardowym wyjściu minimalny koszt przewiezienia złota przez granicę po wykorzystaniu ciągu przemian alchemicznych.
+
+4. ZAWARTOŚĆ
+
+Folder zawiera pliki:
+- 'main.cpp' - kod źródłowy odpowiadający za wprowadzanie danych do programu
+- 'graph.hpp' - plik nagłówkowy odpowiadający za rezprezentację grafu
+- 'heap.hpp' - plik nagłówkowy odpowiadający za reprezentację minimalnej kolejki priorytetowej opartej na kopcu binarnym
+- 'smuggler.hpp' - plik nagłówkowy zawierający implementację algorytmu Dijkstry i w konstruktorze liczący najmniejszy koszt ciągów przemian
+
+5. KOMPILACJA
+
+Folder zawiera Makefile do kompilacji oraz uruchamiania programu. Możliwe komendy:
+
+- make all - kompiluje program
+- make run - uruchamia program
+- make clean - usuwa wszystko poza plikami źródłowymi
+- make tar - kompresuje folder
+
+Możliwe jest również skompilowanie ręczne za pomocą komendy:
+
+	g++ main.cpp -o main
+	
+Oraz uruchomienie:
+
+	./main
+
