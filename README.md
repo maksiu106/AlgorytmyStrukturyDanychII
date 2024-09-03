@@ -1,0 +1,1 @@
+Programy napisane w ramach przedmiotu Algorytmy i Struktury Danych II podczas studiowania Informatyki Stosowanej na Uniwersytecie Jagiellońskim w roku akademickim 2023/24 w grupie ćwiczeniowej prowadzonej przez mgra Bartłomieja Małkusa.
